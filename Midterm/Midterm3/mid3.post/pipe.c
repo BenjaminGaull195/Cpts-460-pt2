@@ -37,6 +37,7 @@ PIPE *create_pipe()
   for (i = 0; i < NPIPE; i++) {
     if (pipe[i].status == FREE) {
       pipe->status = BUSY;
+      pipe->nreader = pipe->nwriter = 1;
       return &pipe[i];
     }
   }
@@ -88,7 +89,7 @@ int write_pipe(PIPE *p, char *buf, int n)
     return 0;
   }
   if (p->nreader == 0) {
-    printf("BOKEN pipe\n");
+    printf("BOKEN pipe condition met.\n");
     kexit(BROKENPIPE);
   }
 

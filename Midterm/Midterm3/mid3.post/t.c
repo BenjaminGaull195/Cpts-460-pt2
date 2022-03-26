@@ -9,8 +9,8 @@ int kprintf(char *fmt, ...);
 #include "vid.c"
 
 #include "exceptions.c"
-#include "wait.c"
 #include "kernel.c"
+#include "wait.c"
 #include "pipe.c"
 
 void copy_vectors(void) {
